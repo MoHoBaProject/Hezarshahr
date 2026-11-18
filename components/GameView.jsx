@@ -89,6 +89,7 @@ export default function GameView() {
         <button className={'btn' + (build ? ' on' : '')} onClick={toggleBuild}>
           {build ? 'روی زمین بزن تا خونه ساخته شه' : 'ساخت خانه (۵۰۰ €)'}
         </button>
+        <button className="btn small" onClick={() => gameRef.current && gameRef.current.exportScale()} aria-label="دانلود مقیاس‌ها">📏</button>
         <button className="btn small" onClick={reset} aria-label="شروع دوباره">⟲</button>
       </div>
     </>
