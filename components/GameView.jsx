@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { FOLLOWERS } from '../lib/config';
 
 const fa = (n) => Number(n).toLocaleString('fa-IR');
 
@@ -62,8 +63,8 @@ export default function GameView() {
           <b>{fa(st.money)} €</b>
         </div>
         <div className="pill">
-          <small>ساکنین</small>
-          <b>{fa(st.pop)}</b>
+          <small>شهروندان</small>
+          <b>{fa(FOLLOWERS)}</b>
         </div>
         <div className={'pill' + (full ? ' warn' : '')}>
           <small>ظرفیت مسکن</small>
