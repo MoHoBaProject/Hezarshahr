@@ -11,6 +11,7 @@ export default function GameView() {
   const [build, setBuild] = useState(false);
   const [toast, setToast] = useState('');
   const [ready, setReady] = useState(false);
+  const [followers, setFollowers] = useState(FOLLOWERS);
 
   useEffect(() => {
     let game = null;
@@ -36,6 +37,18 @@ export default function GameView() {
       if (game) game.dispose();
       gameRef.current = null;
     };
+  }, []);
+
+  useEffect(() => {
+    let stop = false;
+    const load = () =>
+      fetch('/api/followers')
+        .then((r) => r.json())
+        .then((d) => { if (!stop && typeof d.n === 'number') setFollowers(d.n); })
+        .catch(() => {});
+    load();
+    const id = setInterval(load, 300000);
+    return () => { stop = true; clearInterval(id); };
   }, []);
 
   const toggleBuild = () => {
@@ -64,7 +77,7 @@ export default function GameView() {
         </div>
         <div className="pill">
           <small>شهروندان</small>
-          <b>{fa(FOLLOWERS)}</b>
+          <b>{fa(followers)}</b>
         </div>
         <div className={'pill' + (full ? ' warn' : '')}>
           <small>ظرفیت مسکن</small>
