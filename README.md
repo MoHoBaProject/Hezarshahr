@@ -1,5 +1,5 @@
 # هزارشهر — Hezarshahr (پروتوتایپ سه‌بعدی)
-t
+
 شروع از تهران؛ هدف نهایی: کل زمین.
 
 Next.js + three.js، خروجی استاتیک، PWA.
@@ -16,6 +16,7 @@ Next.js + three.js، خروجی استاتیک، PWA.
    - Framework preset: Next.js (Static HTML Export)
    - Build command: `npm run build`
    - Build output directory: `out`
+   - اگه پروژه رو به‌صورت Workers ساختی: Deploy command = `npx wrangler deploy` (فایل `wrangler.jsonc` همین کار رو می‌کنه و پوشه‌ی `out` رو منتشر می‌کنه)
    - Environment variable: `NODE_VERSION` = `20`
 4. Deploy. بعد از باز کردن سایت تو کروم گوشی: «Add to Home screen»
 
